@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>change pass</title>
+</head>
+<body>
+	<form method="post" novalidate >
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        {% for error in  form.non_field_errors %}
+        {{error}}
+        {% endfor %}
+        {% endif %}
+        {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}<br>
+        {% endfor %}
+        <input type="submit" name="Login" value="Login">
+    </form>
+
+</body>
+</html>
